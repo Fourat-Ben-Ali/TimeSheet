@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        SONAR_TOKEN = credentials('SONAR_TOKEN')
-    }
-
     stages {
         stage('GIT') {
             steps {
@@ -21,7 +17,7 @@ pipeline {
 
         stage('ANALYSIS') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=${SONAR_TOKEN}'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=squ_978bc87eb329f2cb75d0d07136624cb082ab7f50'
             }
         }
     }
